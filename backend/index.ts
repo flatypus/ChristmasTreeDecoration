@@ -24,9 +24,9 @@ const io = new Server(http, {
 
 // saved maps get loaded in
 const sqlitePath = `${SQL_PATH}/sqlite.db`;
-// if (!fs.existsSync(sqlitePath)) {
-fs.copyFileSync("./temp/sqlite.db", sqlitePath);
-// }
+if (!fs.existsSync(sqlitePath)) {
+  fs.copyFileSync("./temp/sqlite.db", sqlitePath);
+}
 
 function socket({ io }: { io: Server }) {
   console.log("Socket.io connected, recieving pixels");
